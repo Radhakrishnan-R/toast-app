@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toast App</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://kit.fontawesome.com/b7224fcd49.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="button-box">
+            <button dataset.value ="Success" onclick="toastPop(successMsg)">Success</button>
+            <button dataset.value = "Error" onclick="toastPop(errorMsg)">Error</button>
+            <button dataset.value = "Invalid" onclick="toastPop(invalidMsg)">Invalid</button>
+        </div>
+        <div class="toast-box">
+            <!-- <div class="toast">jhfhjfhjfjhf</div> -->
+        </div>
+    </div>
+    <script type="text/javascript">
+        const toastBox = document.querySelector(".toast-box");
+
+        const errorMsg = `<i class="fa-solid fa-circle-xmark"></i> Please fix the error`;
+        const successMsg = `<i class="fa-solid fa-circle-check"></i> Successfully validated`;
+        const invalidMsg = `<i class="fa-solid fa-circle-exclamation"></i> Invalid entry, please try again`;
+        
+        
+        function toastPop(message){
+            const toast = document.createElement("div");
+            toast.className = "toast";
+            toast.innerHTML = message;
+            toastBox.appendChild(toast);
+
+           if(message.includes("error")){
+            toast.classList.add("error");
+           }else if(message.includes("Invalid")){
+            toast.classList.add("invalid");
+           }
+
+           
+
+           setTimeout(()=>{
+            toast.remove();
+           },5000);
+        }
+    </script>
+</body>
+</html>
