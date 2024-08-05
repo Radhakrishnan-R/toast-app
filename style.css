@@ -8,11 +8,12 @@
 body{
     background-color: #f7edff;
     position: relative;
+    height: 100vh;
 }
 
 .container{
    width: 100%;
-   height: 100vh;
+/*    height: 100vh; */
 }
 
 .button-box{
